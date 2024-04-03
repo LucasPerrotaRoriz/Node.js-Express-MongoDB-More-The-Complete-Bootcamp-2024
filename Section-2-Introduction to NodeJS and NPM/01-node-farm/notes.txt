@@ -1,0 +1,17 @@
+
+----- Question 
+
+Q) What is RELP?
+
+Q) How to exit the console?
+
+Q) What can you do in the console?
+
+
+Typing node on the console will open the Node RELP that means: Read, Eval, Print, Loop. This will allow you to use JS code for example
+creating variables. You can exit this mode by .exit or CTRL+D.
+
+Double tap Tab to see all global variables currently available in NodeJS. You can also do this for example "String." it will show the available
+methods for String.
+
+On terminal you can also do calculations and by using _ you will access the previous result. Example: 3*8 = 24, _+6 = 30.
