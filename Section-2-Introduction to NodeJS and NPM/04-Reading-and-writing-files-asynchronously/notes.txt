@@ -1,0 +1,20 @@
+
+----- Questions 
+
+Q) How to read a file async? What is the syntax and parameters? What it returns?
+
+Q) Read file start, use it's value to read another. Read file append then write the contents
+into a new file.
+
+Q) How to write to a file async? What is the syntax and parameters? What it returns?
+
+
+
+readFile allows tou to read a file async. You can define the character encoding, and the third
+parameter is a callback func. The callback takes 2 arguments: an err and the data.
+
+writeFile will write async. It takes the file to write, the content to write, the encoding, an error and there is no data 
+since you're writing.
+
+
+
