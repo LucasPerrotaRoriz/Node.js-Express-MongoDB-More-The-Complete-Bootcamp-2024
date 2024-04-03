@@ -1,0 +1,44 @@
+
+----- Questions 
+
+Q) What is a API?
+
+Q) What does the '.' mean?
+
+Q) What is __dirname?
+
+Q) How is '.' different on require()?
+
+Q) How to parse JSON?
+
+Q) How to tell browser you're sending JSON data?
+
+Q) Why is not efficient to have readFile inside createServer? Why is better to be sync and outside?
+
+Q) 
+
+Q) Code:
+- Add a route for /api
+- Read the file data.json and parse the data. 
+- Have status code 200, and content type for JSON
+- Send data as response. Show data on url
+- Have the read the sync and outside, parse the data 
+- Send data on createServer
+
+An API is a service that you can request data and get data back.
+
+IN node the '.' refers to the current directory from which the node command is being run in the terminal.
+All NodeJS script get access to __dirname which that is the directory that the node is being run. It's a good practice 
+to use these.
+The require is an exception, you can require your own modules and the '.' means the current directory and not the place the 
+script is executed.
+
+You can parse JSON data with parse that will transform data into JS object.
+
+Having the readFile for /api inside createServer is not a efficient because everytime a request happens the file is read and the 
+data is sent. It's much better to have file reading in the beginning and then send data every hit without reading 
+all over again.
+
+Since the top level code is only executed in the beginning theres no problem it being blocking. 
+
+It's important to identify code that executes once and others who repeat.
