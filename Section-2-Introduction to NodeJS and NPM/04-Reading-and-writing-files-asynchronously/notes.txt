@@ -8,8 +8,6 @@ into a new file.
 
 Q) How to write to a file async? What is the syntax and parameters? What it returns?
 
-
-
 readFile allows tou to read a file async. You can define the character encoding, and the third
 parameter is a callback func. The callback takes 2 arguments: an err and the data.
 
