@@ -1,0 +1,24 @@
+
+----- Questions 
+
+Q) What you have to require to create a web server? What capabilities it offers?
+
+Q) How to create the server? What's the syntax and parameters?
+
+Q) What does end() do?
+
+Q) How to listen to the response? What's the syntax and parameters?
+
+Q) Why when executed the process does not end? How to quit?
+
+
+createServer create a server and fires the callback function everytime you there's a hit/request on the server. 
+It will have access to the req and res objects.
+
+You can send a response with res.end().
+
+Use listen() for listening to requests. It takes a port which is a sub-address on a certain host, a host that if 
+not specified will default to localhost and a optional callback function that runs when the server starts listening.
+
+When you run the application the app keeps running because of the event loop. This makes sense since if it quit you could not
+receive any requests. To quit do CTRL+C.
