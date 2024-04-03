@@ -1,0 +1,53 @@
+
+----- Questions 
+
+Q) What is routing?
+
+Q) Which module you need to analyze a url?
+
+Q) How to get the url of the request? Why is it executed twice? What does it show?
+
+Q) How can you have data in the url?
+
+Q) How can you implement routing where it show different messages for different pages?
+
+Q) What will happen if you try accessing a page that does not exist?
+
+Q) What does writeHead() do? What's the syntax and parameters?
+
+Q) What is a HTTP header?
+
+Q) How can you make the response have a HTML tag?
+
+Q) Where should you define the status code and header?
+
+Q) What the relation between the code,url routes and the file system?
+
+Q) Code:
+- Get the request url
+- Have different response for different routes. /, /overview, /product
+- Have a fallback and define status code, content type and header.
+- Print response
+
+Routing is different actions for different URLs
+
+You can use the url module to analyze the url. You can access the request url by using "req.url".
+The callback is executed twice because th browser makes a request for the site favicon the other 
+is the current directory, in this case /. If it wore overview, it would print /overview.
+
+For example: http://127.0.0.1:8000/overview.
+
+You can also have data in url like: http://127.0.0.1:8000/id=123&abc=456
+
+You can make use of if else to change the log and the page changes
+
+If no fallback is provided and you access a page that does not exist, the page will keep on loading.
+
+By using writeHead you can pass the status code, content type and a custom header.
+
+A HTTP header is a piece of info about the response you're sending.
+By defining the content type as text/html, you can then use a tag in the response.
+You need to setup the headers and status code before the response.
+
+The routes defined in the code and URL and the ones in the file system are not the same. You 
+can't do /templates, unless you've set a route.
