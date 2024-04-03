@@ -1,0 +1,25 @@
+----- Questions
+
+
+NodeJS is a JS runtime built on google's V8 JS engine.
+
+The V8 is the one who will parse and execute the code.
+
+----- Why and when to use NodeJS
+
+-- NodeJS Pros
+
+Single threaded on event driven, non-blocking I/O model.
+
+Perfect for building fast and scalable data intensive apps.
+
+-- Use NodeJS
+
+API with database behind it (preferably NoSQL)
+Data streaming (Example: Youtube)
+Real-time chat application
+Server-side web application
+
+-- Don't use NodeJS
+
+Apps with heavy server-side processing(CPU-intensive)

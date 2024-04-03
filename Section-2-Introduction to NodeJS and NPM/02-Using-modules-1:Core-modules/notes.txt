@@ -1,0 +1,17 @@
+
+----- Questions 
+
+Q) Create a simple log and print it to the terminal. 
+
+Q) What are modules in NodeJS?
+
+Q) How to use the FS module?
+
+
+
+In order for example to reading files you will need a Node modules. Modules are really important in NodeJS and it's built around this concept. 
+They will provide additional functionalities, in the case of reading files the FS Module.
+
+
+
+
