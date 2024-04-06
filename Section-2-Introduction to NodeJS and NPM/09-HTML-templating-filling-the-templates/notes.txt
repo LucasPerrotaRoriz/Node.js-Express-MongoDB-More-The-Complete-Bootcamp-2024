@@ -1,0 +1,14 @@
+----- Question 
+
+Q) Code:
+- Use {%%} as placeholder for data
+- Read the templates synchronously
+- Have each as the proper response with status code and content type.
+- Get the data from products
+- Have it change the {%%} you insert with the object data
+- Replace the {%PRODUCT_CARDS%} 
+
+
+
+
+
