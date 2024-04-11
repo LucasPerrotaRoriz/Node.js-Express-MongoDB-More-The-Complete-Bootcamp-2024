@@ -1,0 +1,39 @@
+----- Question 
+
+Q) What does each dot in a package version mean? What they are for?
+
+Q) What the following symbols mean:
+- ^
+- ~
+- * 
+
+Q) Can you use the above symbols together?
+
+Q) How to install a specific package version? How to install the latest?
+
+Q) How to update outdated packages? How to check for outdated packages?
+
+Q) How to delete a package?
+
+Q) How to get all node_modules back? What files you need?
+
+Q) Code:
+- 
+
+On a package version you have 3 dots, for example 1.18.11. The first is the major version for big releases, minor version that introduces new features but nothing breaking 
+and it's backward compatible and the patch version which is used to fix bugs. 
+
+If there is a ^, it means there are updates available.
+
+npm outdated will give you a list of outdated packages. 
+To install a specific version use @, for example npm install slugify@1.0.0
+You can use ~ after the version instead of ^, so you only accept patch releases.
+Use * for all of the versions, so if a new version appears and you update it will bump to a new version.
+Use @latest for installing the latest package version.
+
+Use uninstall to delete a package
+
+You don't need to share the node_modules folder, so always include a .gitignore for it. You can get it back ny simply using npm install.
+
+The package.lock will contain info on the packages such as their version. Together with the package file they are important to recreate the node_modules.
+
