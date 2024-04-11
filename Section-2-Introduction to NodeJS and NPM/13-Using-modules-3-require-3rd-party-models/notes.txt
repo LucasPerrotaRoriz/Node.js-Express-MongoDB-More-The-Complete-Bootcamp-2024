@@ -1,0 +1,9 @@
+----- Question 
+
+Q) Code:
+- Require slugify
+- Get slugs from each object use the name and have it in lowercase
+- Log slugs
+
+Use require('moduleName') to use a 3rd party module.
+
