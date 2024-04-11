@@ -1,0 +1,13 @@
+----- Question 
+
+Q) How NodeJS treats a file?
+
+Q) How to export something?
+
+Q) How to require your own module?
+
+Q) Code:
+- Make the solution of replacing in a separate module.
+
+NodeJS treats every file as a module. Each module can access a variable called module, were you can do 
+things like exporting.
