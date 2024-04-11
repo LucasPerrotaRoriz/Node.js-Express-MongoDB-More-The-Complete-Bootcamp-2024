@@ -1,0 +1,14 @@
+----- Question 
+
+Q) Code:
+- 
+
+npm init to start.
+
+There are two types of packages you can install simple and development dependencies. They are called like this because the code depends on them.
+
+You can install a package with npm install, use --save-dev to install as dev dependencies, -g to install globally.
+
+You can install globally or locally.
+
+Install slugify, nodemon as dev.
