@@ -1,0 +1,13 @@
+----- Question 
+
+Q) Code:
+- Parse the url and get query and pathname.
+- Have the product path have status code and content type
+- Get the appropriate data 
+- Replace product
+- Make back button work
+
+To parse the url you must use the parse() from the url module, that receives a request url and a boolean value for parsing 
+the query into an object.
+
+
