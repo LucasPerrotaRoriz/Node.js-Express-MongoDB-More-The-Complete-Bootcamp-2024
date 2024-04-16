@@ -1,0 +1,87 @@
+----- Questions 
+
+Q) Where are code from callbacks executed? What happens to more complex code?
+
+Q) Why is NodeJS built around callbacks?
+
+Q) Give examples of events and what the event loop does with them 
+
+Q) When the event loop starts running?
+
+Q) What are the four important phases? Describe each.
+
+Q) What happens if a task for a particular phase has already ended?
+
+Q) What is polling?
+
+Q) Where the majority of the code probably will be executed?
+
+Q) What are the other two phases? Describe them and how they execute.
+
+Q) What is a tick?
+
+Q) How NodeJS decides to exit or continue the loop for a new tick?
+
+Q) The event loop makes what tasks possible?
+
+Q) What are the four tips to not block the event loop?
+
+
+
+----- The heart of NodeJS: The event loop
+
+It's on the event loop where code from callbacks are executed, so all non-tol level code. Some tasks may be taken care of in the thread pool which
+the event loop will handle that. 
+
+NodeJS is built around callbacks because it uses an event-driven architecture where:
+- Events are emitted
+- Event loops picks them 
+- Callbacks are called
+
+For example in the code when there's a new HTTP request, a timer expires, finish reading a file all generate events when they are done. Its the event loop that 
+picks them and calls the callbacks associated with the events.
+
+----- The event loop in detail
+
+When running the app the event loop starts running. It has multiple phases and each has a callback queue that are the callbacks from events.
+There are 4 important phases and one or two not that important.
+
+-- Phase one - Expired timers callbacks
+
+Takes care of callbacks from expired timers for example a setTimeout. If a timer expires while the first phase has already passed, it will to wait the event loop
+go back to phase one to be called.
+
+This works for all phases, they will execute every task one by one and then move to the next phase.
+
+-- Phase two - I/O polling and callbacks 
+
+Polling is looking for I/O events, that can be file access and networking, to be processed and then put in the callback queue. 
+This is where probably the majority of the code will run because you will do lot's of I/O and networking.
+
+-- Phase three - setImmediate callbacks 
+
+setImmediate is a special timer that can be used to immediately process callbacks after I/O and polling phase. 
+
+-- Phase four - Close callbacks
+
+All close events are processed for example an web server or socket shut down.
+
+There's also the nextTick() queue and microtasks queue for resolved promises. If there are any callbacks present there, they will execute after the
+current phase of the event loop, having no need of waiting to finish the entire loop.
+
+nextTick() function can be used for when you really need to execute a specific callback right after the current phase of the event loop.
+
+This finishes one tick which is one cycle from the event loop. There is a decision to continue or stop running the program that will look if there's still
+I/O or times tasks pending. If there's no it exists the program, if there is the event loop continues running and goes to the next tick.
+
+The event loop makes async tasks possible.
+
+----- Tips
+
+It's your job to not block the event loop so follow theses tips:
+
+- Don't use sync versions of functions in fs, crypto, zlib modules on callback functions.
+- Don't perform complex calculations for example loops inside loops.
+- Be careful with JSON in large objects 
+- Don't use complex regular expressions like nested quantifiers
+
