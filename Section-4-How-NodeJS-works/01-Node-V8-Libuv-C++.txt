@@ -1,0 +1,30 @@
+----- Questions
+
+Q) What's the two most important dependencies Node is composed of?
+
+Q) What runtime is Node based?
+
+Q) What the important dependencies do?
+
+Q) What the event loop and thread pool do?
+
+Q) What language is used on NodeJS and important dependencies?
+
+Q) What other four dependencies NodeJS?
+
+----- The NodeJS architecture behind the scenes
+
+The Node runtime is composed of several dependencies the most important being V8 and Libuv. V8 in here makes sense since Node is a JS runtime based on V8.
+
+V8 is responsible for converting JS to machine code. 
+libuv is an open source library focused on async IO. It will give Node access to:
+- Operating system
+- file system
+- networking and more
+
+libuv also implements the event loop which handles executing callbacks and network IO while the thread pool is used for heavy work such as file access or
+compression. 
+
+libuv uses C++ and V8 uses a mix of JS and C++. So NodeJS runs on JS and C++.
+
+NodeJS relies also on: http-parser for parsing http, c-ares for DNS request related things, OpenSSL for cryptography, zlib for compression.
