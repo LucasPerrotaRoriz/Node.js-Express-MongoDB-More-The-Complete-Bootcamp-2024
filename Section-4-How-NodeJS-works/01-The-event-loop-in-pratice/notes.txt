@@ -1,0 +1,48 @@
+----- Questions
+
+Q) Code 
+- Create a setTimeout with 0 and log
+- Create a setImmediate and log
+- Read the file and log
+- Log to the console
+
+What will be the order of logs?
+
+Q) The app executed and exited why?
+
+Q) Code:
+- Add a setTimeout with 0 and other with 3s and a setImmediate on the file read.
+
+What will be the order of logs?
+
+Q) Code:
+- Add a nextTick process and log
+
+What will be the order of logs?
+
+Q) Require the cryptography package and call the method on a password 4 times. Why the encryptions happen almost 
+at the same time?
+
+Q) Change the thread pool to 1 and execute the above code. What happens?
+
+Q) Execute the password functions but with the sync version.
+
+The setTimeout, setImmediate and file reading are executed in no particular order because they a 
+not part of an I/O cycle, so it does not run on the event loop because it's not inside a callback.
+
+Why does the timer 2 executes after immediate 2? Because the event loop waits for things to happen
+in the pool phase where I/O calls are handled. When the queue is empty, the event loop will wait until
+there is a expired timer.
+
+If you schedule a setImmediate callback, it will execute right away after the polling phase and before 
+expired timers.
+
+The process nextTick will execute first immediate2 and timer 2,3 because nextTick is part of the 
+microtask queue and executes after each phase. So the tick callback ran first then the phase of the
+immediate 2.
+
+When you execute the password encryption functions their logs are close because there are 4 threads 
+for then. If you change to 1 each will execute after the other. The timer 3 if you reduce will execute 
+first.
+
+The sync version of the encryption will block the event loop and no longer run on the event loop.
