@@ -1,0 +1,102 @@
+----- Question 
+
+Q) Explain the request-response model or Client-server architecture
+
+Q) Explain each part of the url: https:www.google.com/maps.
+
+Q) What is the DNS and what it does?
+
+Q) What is the port number and it's relation to the data sent on a request?
+
+Q) What is a TCP socket connection?
+
+Q) What is TCP and IP function?
+
+Q) What is HTTP and it's purpose?
+
+Q) What is and what composes a Request Header? Explain each thing
+
+Q) What are the most important HTTP methods and what they do?
+
+Q) What is the difference between HTTPS and HTTP?
+
+Q) What is and what composes the Response Header?
+
+Q) How many request and response will happen when accessing a webpage?
+
+Q) What does TCP do? and the IP?
+
+----- What happens when we access a webpage
+
+When you access a web page the client which is the browser makes a request for the server that sends a response.
+This is called the request-response model or Client-server architecture.
+
+-- Step 1
+
+As a example the url https:www.google.com/maps. It's composed of a Protocol in this case HTTPS, a domain name google.com and a resource /maps.
+The domain name it's just a more simple name, the real name is the IP Address. DNS is responsible for this, so whenever the client makes a request 
+it sends to the DNS which is a special server which then gives the server IP Address.
+
+The real address could be https:216.58.213.206:443, 443 being the port number that is to specify a service running on a server like a sub-address.
+The port number has nothing to do with the resource that is sent over on the request.
+
+-- Step 2
+
+When the you have the real address a TCP socket connection is established between client and server. This connection will continue as long as the files 
+are transferring.
+
+TCP and IP define how data travels on the web. HTTP is a communication protocol that has a set of rules so two or more parties communicate. HTTP will allow 
+clients to send request and server send responses.
+
+-- Step 3
+
+An example of a message is:
+
+Request Header
+    GET /maps HTTP/1.1
+
+    Host: www.google.com 
+    User-Agent: Mozilla/5.0
+    Accept-language: en-US 
+
+    <BODY>
+
+The first line has the HTTP method, request target and HTTP version. For HTTP methods the most important are GET for requesting data, POST for sending data.
+PUT and PATCH to modify data. The request target is the resource you want to access, if it were /, you would access the root in this case google.com.
+
+The request headers are info sent about the request and there are several available. When sending data there will be a <BODY> containing data for example 
+about a form.
+
+HTTPS is different from HTTP because it uses a TLS or SSL encryption, the logic will be the same.
+
+
+-- Step 4
+
+The server will work on the request and then send a response with:
+
+Response Header
+    HTTP/1.1 200 OK 
+
+    Data: Fri, April 11 2024
+    Content-type: text/html
+    Transfer-Encoding: chunked 
+
+    <BODY>
+
+The first line has a HTTP version, a status code which is info if the request was successful or not 200 and 404 are a example,
+a status message with has info on the response which also has alternatives. 
+
+The <BODY> will have data requested and this is made by the dev.
+
+-- Step 5
+
+There won't be only one request and response but many more because whe a request is made the data sent back is just a simple HTML file.
+The CSS,JS and assets will be also requested creating a request-response for each. They can happen at the same time but with a limit to stop 
+slowness.
+
+The browser will then render the files
+
+-- Step 6 
+
+TCP will break out the requests in packets which are small chunks that will be reassembled when they arrive at their destination.
+IP will send and route the packets making sure they arrive at their destination by having IP address on the packets.
