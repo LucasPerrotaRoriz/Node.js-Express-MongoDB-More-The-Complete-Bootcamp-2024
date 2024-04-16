@@ -1,0 +1,47 @@
+----- Question 
+
+Q) What is a static website?
+
+Q) What is a dynamic website? What about it is dynamic?
+
+Q) What is server-side rendering?
+
+Q) What is the relation between dynamic sites and web apps?
+
+Q) What is an API website?
+
+Q) What is client-side rendering?
+
+Q) What is the advantage of a API website?
+
+
+----- Static VS Dynamic Websites
+
+A static website is a ready-file stored in a server with for example HTML,CSS,JS,images which will later be sent
+when a request comes. There will be no backend code, the app won't be running. 
+
+Dynamic websites on the other hand are built on the server each time a request happens. They have a db, the app is running, 
+NodeJS will fetch data from the db, get a predefined template and then build each page based on the request.
+The dynamic part has nothing to do with JS.
+
+When the request happens the appropriate data is fetched and the proper template is loaded with HTML,CSS and JS. This process 
+can be called server-side rendering. The dynamic means that the content might change based on the data in the db or because 
+of the user's actions.
+
+Dynamic websites and web apps can be used interchangeably because web apps can be seen as dynamic websites with functionalities.
+
+
+----- Dynamic VS API Websites
+
+API websites will have a db and a app that fetches data when a request happens very similar to dynamic websites. The difference is 
+that API websites send only data as JSON to the browser and not a whole site.
+
+The building of the website will happen when consuming the API, it can then render the data from a template. The website is built on 
+the frontend instead of the backend and it's called client-side rendering.
+
+----- One API, many consumers 
+
+An API can be consumed by browsers, mobile apps, native apps making API websites more flexible.
+
+
+
