@@ -1,0 +1,32 @@
+----- Question 
+
+Q) What is the frontend?
+
+Q) What is a server and a simple server? What's composed of?
+
+Q) How to make a server communicate with databases?
+
+Q) What is a dynamic server and what is composed of?
+
+
+----- Front-End and Back-End 
+
+-- Frontend
+
+The front end is responsible for creating the UI that will render on the browser using different technologies called stack.
+
+
+-- Backend
+
+A server is a PC connected to the internet. It will store files for example HTML,CSS and JS but also a HTTP server for requesting and delivering 
+responses. The HTTP server is the one that communicates with the browser and create requests and responses, working as a bridge between the front 
+and backend. 
+
+Since the server can only serve static files to the browser with HTTP, it's called a simple server, useful for hosting websites.
+
+If you want the server to talk with databases for example you will need a server that runs OR dynamic apps. This is a dynamic server composed 
+of a HTTP server, files and the OR dynamic that communicate with each other.
+
+When using a dynamic server you will also want to use a database to store data and be accessed by the app. In my case i will be using 
+NodeJS as the dynamic server and MongoDB for the database.
+
