@@ -1,0 +1,34 @@
+----- Questions
+
+Q) What is a process?
+
+Q) How many threads Node has? What is a thread in simple terms?
+
+Q) What are the 4 steps when a program starts executing?
+
+Q) What the thread pool does? What kind of tasks are delegated to it?
+
+
+----- Node process and threads
+
+When Node is in a computer, it means it's process is running there. A process is a instance of a program executing on the PC.
+
+In the process Node will run on a single thread which can be see as a box that runs your code in the CPU.
+
+When a program begins running: 
+
+- first only top level code will be executed, meaning code outside of callbacks and functions. 
+- The modules are required
+- Callbacks are registered
+- Event loop starts running
+
+When there are too heavy tasks, they are executed in the thread pool which has 4 threads separated from the "main" thread.
+The se tasks are usually something related to:
+- File systems APIs
+- Cryptography
+- Compression
+- DNS lookups
+
+Which can block the main thread causing issues.
+
+
