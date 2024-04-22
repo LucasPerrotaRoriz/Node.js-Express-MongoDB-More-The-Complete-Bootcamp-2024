@@ -1,0 +1,26 @@
+----- Question 
+
+Q) 
+
+Q) Code:
+- Log the arguments object
+- Require module and log the wrapper
+- Create a test module with a calculator class with add, multiply and divide methods
+- Export the calculator
+- Import the module and create a new instance
+- Call a method
+- Turn the class to a class expression
+- Create another module and use the exports alternative 
+- Require the module and use a method. Then use destructuring 
+- Create another module that has a log and exports a method that logs a message
+- Require the module and execute the function on the same line 3 times
+
+
+Logging the arguments object you will be able to see the variables of the special wrapper function.
+
+To use the module.exports method all you have to do is create a class and export it like modules.exports = Calculator.
+
+The alternative is adding properties to the exports object.
+
+On the caching module the log inside the module appears only once because the code was executed one time only. The other two 
+are from cache.
