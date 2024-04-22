@@ -1,0 +1,67 @@
+----- Questions
+
+Q) What are streams?
+
+Q) What are the benefits of streams?
+
+Q) Streams are instances of what? What possibilities this opens?
+
+Q) What are the 4 fundamentals streams? Explain them
+
+Q) What are the events and functions of these streams for? 
+
+
+----- What are streams 
+
+They are used to process data that can be a read or a write operation, that's done in chunks without completing the hole operations and therefore
+not keeping all the data in the memory.
+
+An example of this are streaming services such as Netflix and Youtube where the videos is processed piece by piece without having to wait the 
+hole video to load. 
+
+Som benefits of streams are:
+1 - This makes streams perfect for large volumes of data.
+2 - The data is processed more efficiently because you don't need to keep it all in the memory nor wait until all is available.
+
+
+----- NodeJS streams fundamentals
+
+One thing to note is that Streams are instances of EventEmitter making possible that all streams can emit and listen to named events. This allows 
+you to respond accordingly depending on the event.
+
+The events and functions below are for consuming streams. You can also create and consume your own streams, but most apps you will probably be useful
+to know to consume more than implement your own.
+
+There are 4 fundamentals streams:
+
+- Readable streams 
+Streams from which you read/consume data.
+Examples are:
+- The http request, when it makes a request it will be a readable stream, where the data is 
+sent in chunks.
+- fs read streams where you read a file piece by piece.
+
+Some important events are data that happens when there's new data to read and end when there's no more data to consume.
+
+Some important functions are read() and pipe() allows you to pass data between streams without worry of events.
+
+- Writable streams
+Streams that you can write data, opposite of the above. 
+Examples are:
+- http responses, where data is wrote and sent to the client.
+- fs write streams
+
+Important events are drain and finish.
+
+Important functions are write() and end().
+
+- Duplex streams 
+Both readable and writable streams.
+
+Example is a web socket where there's communication between client and server that stays open when the connections is established.
+
+- Transform streams 
+
+They are duplex streams that are transformed when as they are read or wrote.
+
+An example is the zlib Gzip library responsible for compressing data 

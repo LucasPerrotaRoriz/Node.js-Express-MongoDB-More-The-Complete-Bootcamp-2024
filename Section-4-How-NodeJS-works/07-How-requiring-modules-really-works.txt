@@ -1,0 +1,89 @@
+
+----- Questions 
+
+Q) How is each file seen?
+
+Q) 
+
+
+----- The commonJS module system 
+
+Each JS file is seen as a module. NodeJS uses the CommonJS module system with require(), exports or module exports. There is also the ES modules 
+system with import/export used in browsers.
+
+
+---- Happens when you require a module
+
+When you use require with a module name the file path for the module is resolved and the file is loaded, the next process is wrapping, the module code is executed, the module exports return
+and then the module is entirely cached.
+
+
+
+-- Resolving and Loading 
+
+A important question is: how does NodeJS know which module to load? Remember that you can require 3 types:
+
+Core modules: require('http')
+Developer modules: require('./lib/controller')
+3rd party modules(NPM): require('express');
+
+When require() receives the module name what will happen is that it wil try loading a core module with that name, it finds the path automatically and loads it. 
+Developer modules will have a ./ meaning it's a relative path to our file. 
+
+If the name is not found it will try finding a folder. If that fails it will then try load index.js if it's on the folder.
+
+If the module is not the two types above then Node will assume it's a module from NPM. The modules is stored in node_modules, Node will then look for the folder there 
+and load the module.
+
+If all this fails an error will occur and code execution stops.
+
+
+-- Wrapping 
+
+When the module finishes loading it will be wrapped in a special function, giving access to special objects. This is where you can know there the require functions comes from and how you access it.
+
+What will happen is that NodeJS runtime will take the code from module and put in an IIFE, not directly executing the code that is written to the file, rather the wrapper function. It will pass 
+the exports, require, module, __filename, __dirname to it and that's why on every module you can access require(), because they are like global variables injected into every module. 
+
+This has the advantage of giving devs access to all the variables from above and keeps the top level variables defined on modules private. It's scoped to the current module instead of having it on 
+the global object. This stops variables being rewritten due to having similar names.
+
+Each object are:
+
+- require: function to require modules
+
+- module: reference to the current module
+
+- exports: a reference to module.exports, used to export object from a module
+
+- __filename: absolute path of the current module's file
+
+- __dirname: directory name of the current module
+
+
+-- Executing 
+
+The code in the wrapper function gets executed by the runtime of NodeJS. Until here the require has being called with a module name, the module's path is resolved and loaded, the code is wrapped with 
+an IIFE which then gets executed.
+
+
+-- Returning exports 
+
+After the above, require will returns 
+
+It returns the exports of the required module stored in module.exports object.
+
+When to use module.exports or export?
+
+You can use module.exports for when you want to export one variable like a class or function and set it equal to what your're exporting, for example: module.exports = Calculator.
+If on the other hand you want to export multiple named variables, like function such as: exports.add = (a,b) => a + b), then create then as properties of the export object. On the example 
+of the Calculator you could create a exports.divide, exports.multiply and so on.
+
+This is how importing and exporting works between modules. You store the result in a variable so you can save the returned exports.
+
+-- Caching
+
+Modules are cached after being loaded for the first time. If a modules is required multiple times, the result is the same and the code is only executed on the first call. Subsequent call the returns 
+comes from the cache.
+
+
