@@ -1,0 +1,56 @@
+
+----- Questions 
+
+Q) How is each file seen?
+
+Q) 
+
+
+----- The commonJS module system 
+
+Each JS file is seen as a module. NodeJS uses the CommonJS module system with require(), exports or module exports. There is also the ES modules 
+system with import/export used in browsers.
+
+
+---- Happens when you require a module
+
+The file path for the module is resolved and the file is loaded, the next process is wrapping, the modules is executed, the modules exports execute 
+and then the module is entirely cached.
+
+-- Resolving and Loading 
+
+How does Node know what file to load when required? Remember that you can require 3 types:
+
+Core modules: require('http')
+Developer modules: require('./lib/controller')
+3rd party modules(NPM): require('express');
+
+When require() receives the module name what will happen is that it wil try loading a core module with that name, it finds the path automatically and loads it. 
+Developer module will have a ./ meaning it's a relative path to our module. 
+
+If the name is not found it will try finding a folder. If that fails it will then try to find folder on index.js. 
+
+If the module is not the two types above then Node will assume it's a module from NPM. The modules is stored in node_modules, Node will then look for the folder there 
+and load the module.
+
+If all this fails an error will occur and code execution stops.
+
+-- Wrapping 
+
+
+
+-- Executing 
+
+
+
+
+-- Returning exports 
+
+
+
+
+-- Caching
+
+
+
+
