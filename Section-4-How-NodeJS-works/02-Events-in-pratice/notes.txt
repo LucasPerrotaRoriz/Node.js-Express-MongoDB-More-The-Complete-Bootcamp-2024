@@ -1,0 +1,31 @@
+----- Questions 
+
+Q) How to create an event?
+
+Q) Code
+- Require event module 
+- Create a new event instance 
+- Emit an event called "newSale"
+- Create two listeners for the event 
+- Pass an argument to the event listener
+- Create a class that inherits the emitter and then create new object
+- Create a server and attach two listeners for request to them. Log and send a message
+- Create another from close event 
+- Listen for the server 
+- 
+
+
+
+To use events you must require the events module. To create an emitter just create a new instance.
+
+Event emitters can emit events that can be subscribe/listen to and then react.
+
+You can pass arguments to the event listener by passing them as additional arguments
+
+If you have multiple listeners for the same event, they will execute synchronously.
+
+If you were to use these pattern, you will need to create a new class that inherits from the EventEmitter. This is 
+how core modules implement events by inheriting EventEmitter.
+
+Be careful since you can't have another response for th same event. Only one response can be sent to a particular server.
+
