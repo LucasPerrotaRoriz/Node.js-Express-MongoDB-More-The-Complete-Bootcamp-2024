@@ -1,0 +1,46 @@
+----- Question 
+
+Q) What's the problem with solution 1?
+
+Q) What solution 2 solves?
+
+Q) What's the problem with solution 2?
+
+Q) What solution 3 solves?
+
+Q) Code:
+- Require module to read file
+- Require module to create server and create on same line
+
+- Solution 1
+- Listen to event, read the file, log error and return data to client
+- Listen to server and log a message
+
+- Solution 2 
+- Create a stream to read file data
+- Listen to event to write, when it finishes and when something goes wrong
+- Set a status code for error.
+
+- Solution 3
+- Create a readable stream and pipe it
+
+The problem with solution 1 is that Node will have to read the entire file to memory and then send the data.
+This may not be a problem in small applications but on app with  bigger files and when receiving a lot of request 
+this can make the app quit working, crash due to lack of resources.
+
+On solution 2 you will not need to create a variable and have the data stored in it. Use a stream instead that will 
+read each chunk of data and sent it as a response. This will be a writable stream.
+
+Every time there's data to be consumed a readable stream will emit the data event. You will stream the file reading it 
+piece by piece sending to the client when it's available using write().
+
+Solution 2 still has an issue because the readable stream is much faster than sending the result with the response 
+writable stream over the net. This can overwhelm the response stream making it not able to handle all of the data, in a 
+problem called backpressure.
+
+Backpressure will happen when the response can send data nearly as fast as it is receiving it form the file.
+
+To fix this you can use pipe(), that can be used on all readable stream and it allows to pipe the output to 
+a readable stream to input of a writable stream. It will handle the speed of data coming in and out.
+
+The syntax is: readableSource.pipe(writableDestination). Behind the scenes it will do something similar to solution 2. 
