@@ -1,0 +1,32 @@
+  ----- Questions
+
+Q) What are event emitter? What's an example if an event?
+
+Q) What does server.on() do? 
+
+Q) What happens if a request occurs?
+
+Q) Why the above works like that?
+
+Q) What is the observer pattern? What's the advantage?
+
+----- The event-driven architecture
+
+In Node there are event emitters that emit named events when something important happens in the app. For example a request hitting the app or a timer expiring. These events can be listened to
+an fire a callback attached to them.
+
+As an code example: 
+
+const server = http.createServer();
+server.on('request', (req, res) => {
+    console.log('Request received');
+    res.end('Request received');
+});
+
+The server.on() is how you create a listener for the request event. When the server is running and a new request happens, the server acts as the emitter and automatically emits a request event for 
+every request. The callback attached to the listener will then be executed to send data to the client.It works like this because behind the scenes the server is an instance of NodeJS EventEmitter class,
+inheriting all event emitting and listening logic.
+
+The EventEmitter logic is called the observer pattern. There is an observer in the above case the event listener, that keeps waiting/observing the subject until an event occurs. This pattern is based 
+on reacting and has the advantage of a more de-coupled implementation. These modules are self contained, emitting events other functions can respond to. It also makes more straightforward to react 
+multiple times to a exact same event.
