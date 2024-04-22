@@ -1,0 +1,56 @@
+----- Questions 
+
+Q) What are streams?
+
+Q) What are streams useful for?
+
+Q) What are Readable streams?
+
+Q) What are Writable streams?
+
+Q) What are Duplex streams?
+
+Q) What are Transform streams?
+
+
+----- What are streams
+
+Streams are used to process(read or write) data piece by piece(chunks), without completing the whole read or write operation and therefore 
+without keeping all the data in memory.  
+
+Streams are very useful for handling large volumes of data like videos. It makes processing data more efficient in terms of memory because 
+you don't have to keep all the data in memory and you don't need to wait until all the data is available.
+
+
+----- NodeJS Streams fundamentals
+
+There are 4 fundamental streams on NodeJS. They are:
+
+-- Readable streams
+These are stream from which you can read/consume data. Stream are every where in the core modules similar to events for example when an
+http server gets a request the data that comes is a readable stream. You can also read a file in chunks by using the fs module.
+
+Streams are instance of EventEmitter giving they the ability to emit and listen named events.
+
+Some important events from this can be: data for when you have new data to consume and end when there is no more data.
+
+Important functions are pipe() that allow you to plug streams and pass data one to another with no need of events and read()
+
+
+-- Writable streams
+Streams you can write data. Example is the http response that you can send the client that is a writable stream.
+
+Important events are drain and finish.
+
+Important functions are write() and end().
+
+
+-- Duplex streams
+Streams are readable and writable at the same time. A web socket is an example being a communication between client and server staying open when 
+the connection is created. 
+
+
+-- Transform streams
+Duplex streams that transform data as it is written or read. An example is zlib Gzip func 
+
+
